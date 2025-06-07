@@ -1,12 +1,12 @@
 
---1 . List of all customers
+--1- List of all customers
 SELECT * FROM Sales.Customer;
 
 
 
 
 
---2.List of all customers where company name ends in N:
+--2-List of all customers where company name ends in N:
 SELECT * 
 FROM Sales.Store s
 JOIN Sales.Customer c ON s.BusinessEntityID = c.StoreID
@@ -40,7 +40,7 @@ ORDER BY Name;
 
 
 
---6-List of all products where product naame starts with an A
+--6-List of all products where product name starts with an A
 SELECT ProductID, Name, ProductNumber, MakeFlag, FinishedGoodsFlag, Color, SafetyStockLevel, ReorderPoint, StandardCost, ListPrice, Size, SizeUnitMeasureCode, WeightUnitMeasureCode, Weight, DaysToManufacture, ProductLine, Class, Style, ProductSubcategoryID, ProductModelID, SellStartDate, SellEndDate, DiscontinuedDate, rowguid, ModifiedDate
 FROM Production.Product
 WHERE Name LIKE 'A%'
@@ -248,7 +248,7 @@ ORDER BY
 
 
 
---21-List of customers Contact name and numbers of orders they placed .
+--21-List of customers ContactName and number of orders they placed .
 SELECT 
     p.FirstName + ' ' + p.LastName AS ContactName,
     COUNT(soh.SalesOrderID) AS NumberOfOrders
@@ -380,7 +380,7 @@ HAVING
 
 
 
---28-List of orders and ProductNames.
+--28-List of orders and ProductName
 USE AdventureWork;
 SELECT
     soh.SalesOrderID,
@@ -507,7 +507,7 @@ WHERE
 
 
 
---33-List of ProductNames and Categories for the supplier 'Speciality Biscuits, Ltd.
+--33-List of ProductNames and Categories for the supplier 'Speciality Biscuits", Ltd.
 USE AdventureWork;
 
 SELECT 
