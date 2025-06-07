@@ -6,7 +6,7 @@ SELECT * FROM Sales.Customer;
 
 
 
---2.List of all customers where company name ends with 'N':
+--2.List of all customers where company name ends in N:
 SELECT * 
 FROM Sales.Store s
 JOIN Sales.Customer c ON s.BusinessEntityID = c.StoreID
