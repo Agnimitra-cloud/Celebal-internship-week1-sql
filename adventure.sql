@@ -1,12 +1,9 @@
-
---1- List of all customers
+--1 . List of all customers
 SELECT * FROM Sales.Customer;
 
 
 
-
-
---2-List of all customers where company name ends in N:
+--2.List of all customers where company name ends with 'N':
 SELECT * 
 FROM Sales.Store s
 JOIN Sales.Customer c ON s.BusinessEntityID = c.StoreID
@@ -40,7 +37,7 @@ ORDER BY Name;
 
 
 
---6-List of all products where product name starts with an A
+--6-List of all products where product naame starts with an A
 SELECT ProductID, Name, ProductNumber, MakeFlag, FinishedGoodsFlag, Color, SafetyStockLevel, ReorderPoint, StandardCost, ListPrice, Size, SizeUnitMeasureCode, WeightUnitMeasureCode, Weight, DaysToManufacture, ProductLine, Class, Style, ProductSubcategoryID, ProductModelID, SellStartDate, SellEndDate, DiscontinuedDate, rowguid, ModifiedDate
 FROM Production.Product
 WHERE Name LIKE 'A%'
@@ -164,7 +161,7 @@ GROUP BY
 
 
 --15-Get a list of all managers and total no of employees who report to them.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     E.BusinessEntityID AS ManagerID,
@@ -248,7 +245,7 @@ ORDER BY
 
 
 
---21-List of customers ContactName and number of orders they placed .
+--21-List of customers Contact name and numbers of orders they placed .
 SELECT 
     p.FirstName + ' ' + p.LastName AS ContactName,
     COUNT(soh.SalesOrderID) AS NumberOfOrders
@@ -266,7 +263,7 @@ ORDER BY
 
 
 --22-List of customers contactnames who have placed more than 3 orders.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     P.FirstName + ' ' + P.LastName AS ContactName,
@@ -287,7 +284,7 @@ ORDER BY
 
 
 --23-List of discontinued products which were ordered between 1/1/1997 and 1/1/1998
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     P.ProductID,
@@ -311,7 +308,7 @@ ORDER BY
 
 
 --24-List of employees firstname,lastname,superviser Firstname,Lastname
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     E1.FirstName AS EmployeeFirstName,
@@ -332,7 +329,7 @@ ORDER BY
 
 
 --25-List of employees ID and total sale conducted by employee. 
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     E.BusinessEntityID AS EmployeeID,
@@ -351,7 +348,7 @@ ORDER BY
 
 
 --26-List of employees whose Firstname contains character a.
-USE AdventureWork;
+USE AdventureWorks2019;
 SELECT FirstName, LastName
 FROM HumanResources.Employee AS e
 JOIN Person.Person AS p ON e.BusinessEntityID = p.BusinessEntityID
@@ -360,7 +357,7 @@ WHERE p.FirstName LIKE '%a%';
 
 
 --27-List of managers who have more than four people reporting to them.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     ManagerPerson.FirstName, 
@@ -380,8 +377,8 @@ HAVING
 
 
 
---28-List of orders and ProductName
-USE AdventureWork;
+--28-List of orders and ProductNames.
+USE AdventureWorks2019;
 SELECT
     soh.SalesOrderID,
     soh.OrderDate,
@@ -398,7 +395,7 @@ JOIN
 --29-List of orders placed by best customer.
 
     --identify the best customer.
-	USE AdventureWork;
+	USE AdventureWorks2019;
 WITH CustomerTotal AS (
     SELECT
         soh.CustomerID,
@@ -417,7 +414,7 @@ ORDER BY
     TotalSpent DESC;
 
 	--order placed by the best customer.
-	USE AdventureWork;
+	USE AdventureWorks2019;
 SELECT
     soh.SalesOrderID,
     soh.OrderDate,
@@ -445,7 +442,7 @@ WHERE
 
 
 --30-List of orders placed by customer who do not have a fax number.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     soh.SalesOrderID,
@@ -468,7 +465,7 @@ WHERE
 
 
 --31-List of postal codes where the product tofu was shipped.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT DISTINCT
     a.PostalCode
@@ -486,7 +483,7 @@ WHERE
 
 
 --32-List of product Names that were shipped to France.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT DISTINCT
     p.Name AS ProductName
@@ -507,8 +504,8 @@ WHERE
 
 
 
---33-List of ProductNames and Categories for the supplier 'Speciality Biscuits", Ltd.
-USE AdventureWork;
+--33-List of ProductNames and Categories for the supplier 'Speciality Biscuits, Ltd.
+USE AdventureWorks2019;
 
 SELECT 
     p.Name AS ProductName,
@@ -529,7 +526,7 @@ WHERE
 
 
 --34-List of products that were never ordered.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     p.ProductID,
@@ -544,7 +541,7 @@ WHERE
 
 
 --35--List of products where units in stock is less than 10 and units on order are 0.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     p.ProductID,
@@ -565,7 +562,7 @@ WHERE
 
 
 --36-List of top 10 countries by sales.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT TOP 10
     cr.Name AS Country,
@@ -586,7 +583,7 @@ ORDER BY
 
 
 --37-Number of orders each employee has taken for customers with CustomerIDs between A and AO.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     e.BusinessEntityID AS EmployeeID,
@@ -605,7 +602,7 @@ GROUP BY
 
 
 --38-Orderdate of most expensive order.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     OrderDate
@@ -617,7 +614,7 @@ WHERE
 
 
 --39-Product name and total revenue from that product.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     p.Name AS ProductName,
@@ -636,7 +633,7 @@ ORDER BY
 
 
 --40-Supplierid and number of products offered.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     pv.BusinessEntityID AS SupplierID,
@@ -651,7 +648,7 @@ ORDER BY
 
 
 --41-Top ten customers based on their business.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     c.CustomerID,
@@ -676,7 +673,7 @@ FETCH NEXT 10 ROWS ONLY;
 
 
 --42-what is the total revenue of that company.
-USE AdventureWork;
+USE AdventureWorks2019;
 
 SELECT 
     SUM(TotalDue) AS TotalRevenue
